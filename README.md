@@ -79,6 +79,33 @@ repo for notes and little scripts in Ocaml
 * `~foo` is a named argument foo
 * `foo#bar` calls method `bar` on object called `foo`
 
+### [First Steps in OCaml](https://caml.inria.fr/pub/docs/u3-ocaml/ocaml-steps.html)
+* source files end in `.ml`
+* files can be compiled with `ocamlc`: `ocamlc -o hello hello.ml`
+* this creates `.cmo` and `.cmi` files, which are object and compiled interface files respectively
+* the ocaml interpreter can be used for running scripts: `ocaml hello.ml`
+* running `ocaml < hello.ml` starts a toplevel session with the file, allowing interactive messages
+* no notion of instruction or procedure, all expressions must return a value
+* `[| 0; 1 |]` is an array while `[0;1]` is a list
+* `fun...-> e` is used to create anonymous functions
+* for loop `for i = e0 to ef do e done`
+* infixes (operations between variables) become prefixes when put between parentheses: `( + ) x1 x2`
+* array projections are polymorphic, and operate on any kind of array (accessor access any element type within the array)
+* records are variants, and must be declared before being used: `type 'a annotation = { name : string; mutable info : 'a};;`
+
+
+
+### [Core from Jane Street](https://janestreet.github.io/installation.html)
+* install `core` with `opam install core`
+* `.ocamlinit` file can be found in home directory
+* link above contains values that can be added to the `.ocamlinit` file to add syntax extensions in the toplevel
+* to build with ocamlbuild, additions to the `_tags` [file](https://ocaml.org/learn/tutorials/ocamlbuild/Tags.html) is required to enable this. Then you use the command `ocamlbuild -use-ocamlfind myproject.native.`
+
+
+### [Core and Async Hello World](https://bitbucket.org/yminsky/core-hello-world)
+* install dependencies: `opam install async core textutils`
+* build script is `./build_all.sh`
+
 
 
 
