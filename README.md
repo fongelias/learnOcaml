@@ -67,6 +67,17 @@ repo for notes and little scripts in Ocaml
 * for example, the `graphics.cma` file is loaded with the `open Graphics;;` declaration
 * otherwise, you can prefix all calls to the functions like `Graphics.open_graph`
 * in the interactive toplevel, you must load the library with `load "graphics.cma";;`
+* the Pervasives module are automatically imported into every Ocaml program
+* modules can be named by using the `module` keyword: `module Gr = Graphics;;`
+
+#### Operators
+* `+` operator has type `int -> int -> int`
+* `;` operator has type `unit -> 'b -> 'b`
+* everything is an expression, including `if/then/else
+* `;;` is used for toplevel most of the time, or for debugging, since its stops any running definition, and should not be used outside of toplevel
+* `?foo` is an optional argument foo
+* `~foo` is a named argument foo
+* `foo#bar` calls method `bar` on object called `foo`
 
 
 
