@@ -52,6 +52,11 @@ repo for notes and little scripts in Ocaml
 * string
 * unit (similar to void)
 
+### [Basics part 2](https://learnxinyminutes.com/docs/ocaml/)
+* the last expression is the return value, all other expressions must be of unit type
+* `mod` is used instead of the common operator `%`
+* you can redefine operators: `let (+) a b = a - b;;
+
 ### [Structure of OCaml Programs](https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.html)
 * phrase `let name = expression in` is used to define a named local expression (can be used until a `;;`, which ends the block)
 * this expression can no longer be changed
