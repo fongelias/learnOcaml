@@ -55,7 +55,16 @@ repo for notes and little scripts in Ocaml
 ### [Basics part 2](https://learnxinyminutes.com/docs/ocaml/)
 * the last expression is the return value, all other expressions must be of unit type
 * `mod` is used instead of the common operator `%`
-* you can redefine operators: `let (+) a b = a - b;;
+* you can redefine operators: `let (+) a b = a - b;;`
+* lists have map and filter functions
+* `::` concatinates to the beginning of a list
+* single and double quotes are not interchangable
+* strings can be concatenated with the `^` operator
+* strings are not arrays of characters
+* types can be defined with the `type` keyword
+* type constructors start with a capital letter: `type ml = Ocaml | StandardML ;;`, `Ocaml` has type `ml`
+* type constructors can be used to implement polymorphic arithmetics
+* `'a` can be substituted with any type
 
 ### [Structure of OCaml Programs](https://ocaml.org/learn/tutorials/structure_of_ocaml_programs.html)
 * phrase `let name = expression in` is used to define a named local expression (can be used until a `;;`, which ends the block)
