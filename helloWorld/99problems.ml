@@ -30,7 +30,11 @@ let reverse list =
 		| h::t -> rev (h::acc) t
 	in rev [] list
 ;;
-print_int (at 2 (reverse [4;3;2;1]));
+print_int (at 2 (reverse [4;3;2;1]))
+
+(* Check if a list is a palindrome *)
+let is_palindrome list = list = (reverse list);;
+Printf.printf "%B" (is_palindrome [1;2;2;1])
 
 
 
