@@ -55,7 +55,7 @@ repo for notes and little scripts in Ocaml
 ### [Basics part 2](https://learnxinyminutes.com/docs/ocaml/)
 * the last expression is the return value, all other expressions must be of unit type
 * `mod` is used instead of the common operator `%`
-* you can redefine operators: `let (+) a b = a - b;;`
+* you can [redefine operators](http://blog.shaynefletcher.org/2016/09/custom-operators-in-ocaml.html): `let (+) a b = a - b;;`
 * lists have map and filter functions
 * `::` concatinates to the beginning of a list
 * single and double quotes are not interchangable

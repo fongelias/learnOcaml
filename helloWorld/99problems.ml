@@ -23,7 +23,7 @@ let length list =
 print_int (length [4;5;6])
 
 (* Reverse a list*)
-(* reverse : list -> list *)
+(* reverse : 'a list -> 'a list *)
 let reverse list =
 	let rec rev acc = function
 		| [] -> acc
@@ -33,8 +33,24 @@ let reverse list =
 print_int (at 2 (reverse [4;3;2;1]))
 
 (* Check if a list is a palindrome *)
+(* is_palindrome : 'a list -> bool *)
 let is_palindrome list = list = (reverse list);;
 Printf.printf "%B" (is_palindrome [1;2;2;1])
+
+(* Flatten a nested list structure*)
+type 'a node =
+	| One of 'a
+	| Many of 'a node list
+;;
+(* flatten : 'a node list -> 'a list *)
+let flatten list =
+	let rec aux acc = function
+		| [] -> acc
+		| One x::t -> aux (x :: acc) t  (* if One at the head, concatinate to head of acc*)
+		| Many x::t -> aux (aux acc x) t  (* if Many at head, recursively concatinate to acc*)
+	in reverse (aux [] list)
+;;
+
 
 
 
