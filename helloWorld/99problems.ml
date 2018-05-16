@@ -37,7 +37,7 @@ print_int (at 2 (reverse [4;3;2;1]))
 let is_palindrome list = list = (reverse list);;
 Printf.printf "%B" (is_palindrome [1;2;2;1])
 
-(* Flatten a nested list structure*)
+(* Flatten a nested list structure *)
 type 'a node =
 	| One of 'a
 	| Many of 'a node list
@@ -48,8 +48,28 @@ let flatten list =
 		| [] -> acc
 		| One x::t -> aux (x :: acc) t  (* if One at the head, concatinate to head of acc*)
 		| Many x::t -> aux (aux acc x) t  (* if Many at head, recursively concatinate to acc*)
-	in reverse (aux [] list)
+	in reverse (aux [] list) (* since we cannot write acc :: x, *)
 ;;
+
+(* Eliminate consecutive duplicates of list elements *)
+(* compress : 'a list -> 'a list *)
+(* mine ended up using the option type: compress : 'a option list -> 'a option list  *)
+let compress list =
+	let rec aux acc last = function
+		| [] -> acc
+		| x::t when x = last -> (aux acc last) t
+		| x::t when x != last -> x::((aux acc x) t)
+	in (aux [] None) list
+;;
+(* Answer implementation
+let rec compress = function
+	| a:: (b :: _ as t) -> if a = b then compress t else a :: compress t(* why do we need _ as t?*)
+	| x -> x
+;;
+
+(* combines first and last case, no last variable *)
+
+*)
 
 
 
