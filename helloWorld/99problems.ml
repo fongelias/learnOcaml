@@ -68,8 +68,39 @@ let rec compress = function
 ;;
 
 (* combines first and last case, no last variable *)
-
 *)
+
+(* Pack consecutive duplicates of list elements into sublists *)
+(* pack : 'a list -> 'a list list*)
+let pack list =
+	let rec aux curr acc = function
+		| [] -> []
+		| [x] -> (x :: curr) :: acc
+		| a :: (b :: _ as t) -> 
+			if a = b 
+			then aux (a :: curr) acc t
+			else aux [] ((a :: curr) :: acc) t
+	in reverse (aux [] [] list)
+;;
+
+(* Run-length encoding of a list *)
+(* encode : 'a list -> (int * 'a) tuple list *)
+let encode list =
+	let rec aux count acc = function
+		| [] -> acc
+		| [x] -> (count + 1, x) :: acc
+		| a :: (b :: _ as t) -> 
+			if a = b
+			then aux (count + 1) acc t
+			else aux 0 ((count + 1, a) :: acc) t
+	in reverse (aux 0 [] list)
+;;
+
+
+
+
+
+
 
 
 
